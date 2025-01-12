@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 967ffb36bcdc7a14c95548cf059e63c4, type: 3}
+  m_Name: Boss2
+  m_EditorClassIdentifier: 
+  BossName: Rider
+  BossHp: 5
+  BossSpeed: 8
+  BossSprite: {fileID: -6116058755252793876, guid: 1ad2e28dd42f9aa4ab1ddcb3fd326aa7, type: 3}
+  BossObj: {fileID: -2039185057848724375, guid: f01e46a37c805b640aca4d9d7f657ee3, type: 3}

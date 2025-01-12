@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections;
 
-public class Player : MonoBehaviour
+public class Player : MonoBehaviour, IReceiveAttack
 {
     const string JUMP = "Jump";
     const string MOVE = "Move";
@@ -13,6 +13,9 @@ public class Player : MonoBehaviour
     Rigidbody2D rb;
     Animator animator;
     SpriteRenderer sr;
+
+    private int MaxHp = 5;
+    private int Hp = 5;
 
     public float jumpForce = 10f;
     public float speed = 5f;
@@ -30,10 +33,14 @@ public class Player : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         sr = GetComponentInChildren<SpriteRenderer>();
+
+        GameManager.instance.player = this;
     }
 
     private void Update()
     {
+        if (GameManager.instance.isCutScenePlaying) return;
+
         Move();
         Jump();
         DodgeFunc();
@@ -51,6 +58,7 @@ public class Player : MonoBehaviour
             sr.flipX = xDir < 0;
 
         animator.SetBool(MOVE, Math.Abs(xDir) > 0);
+        Global.IsPlayerMoveRight?.Invoke((int)xDir);
     }
 
     private void Jump()
@@ -104,7 +112,7 @@ public class Player : MonoBehaviour
             float elapsedTime = 0f;
             while (elapsedTime < 0.3f)
             {
-                transform.position = Vector3.Lerp(startPos, endPos, elapsedTime/0.3f);
+                rb.MovePosition(Vector3.Lerp(startPos, endPos, elapsedTime / 0.3f));
                 elapsedTime+= Time.deltaTime;
                 yield return null;
             }
@@ -116,10 +124,29 @@ public class Player : MonoBehaviour
         animator.SetBool(DODGE, isDodge);
     }
 
-    private void Parry()
+    private IEnumerator Parry()
     {
+        isParry = true;
 
+        yield return null;
+
+        isParry = false;
     }
 
     private Vector3 GetDir() => sr.flipX ? Vector3.left : Vector3.right;
+
+    public void Attacked(Projectile proj = null)
+    {
+        if (isParry)
+        {
+            if(proj != null)
+                proj.Init(transform.position, GameManager.instance.nowBoss.transform.position, 0, 0, false);
+            return;
+        }
+        if (invincible)
+            return;
+
+        Hp--;
+        Destroy(proj.gameObject);
+    }
 }

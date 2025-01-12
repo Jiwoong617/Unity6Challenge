@@ -12,7 +12,9 @@ GameObject:
   - component: {fileID: 4038287896383140757}
   - component: {fileID: 7197586938051822461}
   - component: {fileID: 7312827836598371469}
-  m_Layer: 0
+  - component: {fileID: 446169630431553066}
+  - component: {fileID: 8427539156679568776}
+  m_Layer: 8
   m_Name: Grandma
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -119,7 +121,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -157,3 +159,53 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!50 &446169630431553066
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6261110078481593872}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 8
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
+--- !u!114 &8427539156679568776
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6261110078481593872}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 220d416232205134babfdf913572b6c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  state: 0
+  Hp: 0
+  Speed: 0
+  isFlip: 0
+  isAlive: 1
+  foods:
+  - {fileID: -4522450989294909825, guid: 8891471586a755746901fe4ad69ff085, type: 3}
+  - {fileID: 3718113701559466645, guid: 4865a242f8f15aa49bc2e2cfa4236ebd, type: 3}
+  - {fileID: 7670333031865212187, guid: edab3c4be7f29d94f848e6e644cdb250, type: 3}
+  throwTime: 2
+  SkillTime: 5
