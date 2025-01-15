@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour
     public Player player;
     public EnemyBase nowBoss;
     [SerializeField] BossData[] bossData = new BossData[3];
-    private int round = 0;
+    [SerializeField] private int round = 0;
 
     private Vector3 spawnPos = new Vector3(9, -2.67f, 0);
 
@@ -28,7 +28,7 @@ public class GameManager : MonoBehaviour
     {
         if (instance == null) instance = this;
 
-        round = 1;
+        round = 2;
     }
 
     private void Start()

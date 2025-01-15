@@ -55,7 +55,7 @@ public class EnemyBase : MonoBehaviour
     protected virtual IEnumerator ChooseSkill(params IEnumerator[] Skills)
     {
         int rand = Random.Range(0, Skills.Length);
-        Debug.Log($"{Skills.Length},  {rand}");
+        //Debug.Log($"{Skills.Length},  {rand}");
         return Skills[rand];
     }
 

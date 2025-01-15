@@ -628,6 +628,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: f9177d7cca072e442906a695222d5255, type: 2}
   - {fileID: 11400000, guid: bd3d7ca312d65db43a967351a24ad2c0, type: 2}
   - {fileID: 11400000, guid: cff18d38a7987ba41b991f80aaf1e1a1, type: 2}
+  round: 0
   CutSceneUI: {fileID: 2060430813}
   BossName: {fileID: 129229441}
   BossSprite: {fileID: 1639140733}

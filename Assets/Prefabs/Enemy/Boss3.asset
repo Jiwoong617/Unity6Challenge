@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 967ffb36bcdc7a14c95548cf059e63c4, type: 3}
   m_Name: Boss3
   m_EditorClassIdentifier: 
-  BossHp: 0
-  BossSpeed: 0
-  BossSprite: {fileID: 0}
+  BossName: Biker Grandma
+  BossHp: 10
+  BossSpeed: 10
+  BossSprite: {fileID: 7280178360772256520, guid: 3a21764064a5b7444a6189b51de36d52, type: 3}
+  BossObj: {fileID: -8637206406612463648, guid: 6e004419f1c982e42b69fa87bad32427, type: 3}

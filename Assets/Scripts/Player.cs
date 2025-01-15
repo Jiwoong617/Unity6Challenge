@@ -80,7 +80,7 @@ public class Player : MonoBehaviour, IReceiveAttack
 
         if(rb.linearVelocityY < 0f)
         {
-            RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, 1f, LayerMask.GetMask("Ground"));
+            RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, 1.2f, LayerMask.GetMask("Ground"));
             if (hit.collider != null)
             {
                 isGround = true;

@@ -103,12 +103,15 @@ public class Deliver : EnemyBase
 
         transform.position = new Vector3(isFlip ? -patrolX + 1 : patrolX - 1, transform.position.y, 0);
         int rand = Random.Range(3, 6);
+        float t = rand * 0.5f;
         for (int i = 0; i < rand; i++)
         {
             DeliverSummon go = Instantiate(shadow);
             go.Init(new Vector3(Random.Range(-0.5f, 0.5f) + transform.position.x, transform.position.y + 0.1f, 0), 
-                isFlip ? Vector3.right : Vector3.left, 1, 1);
-            yield return new WaitForSeconds(Random.Range(0.75f, 1.5f));
+                isFlip ? Vector3.right : Vector3.left, t + 0.3f, 1);
+
+            t -= 0.5f;
+            yield return new WaitForSeconds(0.5f);
         }
 
         state = EnemyState.Move;

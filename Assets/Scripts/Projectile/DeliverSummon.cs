@@ -44,6 +44,8 @@ public class DeliverSummon : Projectile
 
     IEnumerator ShadowPartner(float time)
     {
+        if(transform.position.x < 0f) GetComponent<SpriteRenderer>().flipX = true;
+
         yield return new WaitForSeconds(time);
         readyToFire = true;
     }
