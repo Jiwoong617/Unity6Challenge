@@ -22,12 +22,17 @@ public class Projectile : MonoBehaviour
         transform.position = startPos;
 
         if(isEnemy == false)
+        {
             GetComponent<Collider2D>().excludeLayers = playerLayer;
+            PlayerParryed();
+        }
     }
 
     protected void PlayerParryed()
     {
-
+        Rigidbody2D rb = GetComponent<Rigidbody2D>();
+        rb.gravityScale = 0f;
+        rb.linearVelocity = (target - start).normalized * 20f;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

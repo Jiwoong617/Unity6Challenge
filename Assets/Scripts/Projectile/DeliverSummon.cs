@@ -19,8 +19,11 @@ public class DeliverSummon : Projectile
     {
         base.Init(startPos, targetPos, time, high, enemy);
 
-        if (high == 0) StartCoroutine(LockOnAndShoot(time));
-        else if (high == 1) StartCoroutine(ShadowPartner(time));
+        if(enemy)
+        {
+            if (high == 0) StartCoroutine(LockOnAndShoot(time));
+            else if (high == 1) StartCoroutine(ShadowPartner(time));
+        }
     }
 
     IEnumerator LockOnAndShoot(float time)

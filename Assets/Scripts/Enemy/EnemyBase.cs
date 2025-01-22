@@ -1,5 +1,4 @@
 using System.Collections;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class EnemyBase : MonoBehaviour
@@ -14,6 +13,7 @@ public class EnemyBase : MonoBehaviour
     protected Coroutine SkillCo = null;
 
     protected float patrolX = 9.5f;
+    [SerializeField] protected int MaxHp;
     [SerializeField] protected int Hp;
     [SerializeField] protected float Speed;
     [SerializeField] protected bool isFlip = false; //true - right, false - left
@@ -48,6 +48,7 @@ public class EnemyBase : MonoBehaviour
 
     public void Init(int hp, float speed)
     {
+        MaxHp = hp;
         Hp = hp;
         Speed = speed;
     }
@@ -74,5 +75,33 @@ public class EnemyBase : MonoBehaviour
     }
 
     protected virtual void OnSkill() { }
-    protected virtual void OnDie() { }
+    protected virtual void OnDie() 
+    {
+        if (!isAlive) return;
+
+        if (SkillCo != null) StopCoroutine(SkillCo);
+        isAlive = false;
+        animator.SetTrigger("Dead");
+        StartCoroutine(DeadCo());
+    }
+
+    protected IEnumerator DeadCo()
+    {
+        if(SkillCo != null) StopCoroutine(SkillCo);
+        col.enabled = false;
+
+        yield return new WaitForSeconds(2f);
+        GameManager.instance.OnRoundEnd();
+
+        Destroy(gameObject);
+    }
+
+    protected void OnTriggerEnter2D(Collider2D collision)
+    {
+        IReceiveAttack hitted = collision.GetComponent<IReceiveAttack>();
+        if (hitted == null)
+            return;
+
+        hitted.Attacked();
+    }
 }

@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class Deliver : EnemyBase
+public class Deliver : EnemyBase, IReceiveAttack
 {
     [SerializeField] DeliverSummon shadow;
 
@@ -39,10 +39,7 @@ public class Deliver : EnemyBase
 
     protected override void OnDie()
     {
-        if (!isAlive) return;
-
-        if (SkillCo != null) StopCoroutine(SkillCo);
-        isAlive = false;
+        base.OnDie();
     }
 
     protected override void SpriteFlip()
@@ -54,13 +51,11 @@ public class Deliver : EnemyBase
     # region Skill
     IEnumerator Skill_1() //µ¹Áø
     {
-        col.enabled = false;
         Vector3 dir = isFlip ? Vector2.right : Vector2.left;
         Vector3 originPos = transform.position;
         animator.SetTrigger("Charging");
 
         yield return new WaitForSeconds(2f);
-        col.enabled = true;
 
         while(Mathf.Abs(transform.position.x) < 12)
         {
@@ -125,8 +120,8 @@ public class Deliver : EnemyBase
             Destroy(proj.gameObject);
 
         Hp--;
+        GameManager.instance.ChangeBossHpUI(Hp, MaxHp);
         if (Hp <= 0)
             state = EnemyState.Die;
     }
-
 }

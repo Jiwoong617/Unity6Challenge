@@ -48,10 +48,7 @@ public class Grandma : EnemyBase, IReceiveAttack
 
     protected override void OnDie()
     {
-        if (!isAlive) return;
-
-        if (SkillCo != null) StopCoroutine(SkillCo);
-        isAlive = false;
+        base.OnDie();
     }
 
     protected override void SpriteFlip()
@@ -63,7 +60,7 @@ public class Grandma : EnemyBase, IReceiveAttack
     private void ThrowFood()
     {
         Projectile go = Instantiate(foods[Random.Range(0, foods.Length)]);
-        go.Init(transform.position, target.transform.position, 2f, 4f);
+        go.Init(transform.position, new Vector3(target.transform.position.x, -3.5f, 0), 2f, 4f);
     }
 
     # region Skill
@@ -73,7 +70,7 @@ public class Grandma : EnemyBase, IReceiveAttack
         for(int i = 0; i<11; i++)
         {
             Projectile go = Instantiate(foods[Random.Range(0, foods.Length)]);
-            go.Init(transform.position, new Vector3(x, target.position.y, 0f), 3f, 5f);
+            go.Init(transform.position, new Vector3(x, -3.5f, 0f), 3f, 5f);
             x = isFlip ? x - 2 : x + 2;
 
             yield return new WaitForSeconds(0.5f);
@@ -91,7 +88,7 @@ public class Grandma : EnemyBase, IReceiveAttack
         for(int i = 0; i<10; i++)
         {
             Projectile go = Instantiate(foods[Random.Range(0, foods.Length)]);
-            go.Init(transform.position, new Vector3(Random.Range(-9, 10), target.position.y, 0), Random.Range(3f, 4f), Random.Range(5f, 6f));
+            go.Init(transform.position, new Vector3(Random.Range(-9, 10), -3.5f, 0), Random.Range(3f, 4f), Random.Range(5f, 6f));
         }
 
         state = EnemyState.Move;
@@ -105,6 +102,7 @@ public class Grandma : EnemyBase, IReceiveAttack
             Destroy(proj.gameObject);
 
         Hp--;
+        GameManager.instance.ChangeBossHpUI(Hp, MaxHp);
         if (Hp <= 0)
             state = EnemyState.Die;
     }

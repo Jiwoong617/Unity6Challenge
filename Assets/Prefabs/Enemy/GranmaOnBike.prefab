@@ -274,7 +274,7 @@ GameObject:
   - component: {fileID: 5138126607717313202}
   - component: {fileID: -8637206406612463648}
   - component: {fileID: 271405564504185709}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: GranmaOnBike
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -361,6 +361,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   state: 0
+  MaxHp: 0
   Hp: 0
   Speed: 0
   isFlip: 0
@@ -369,6 +370,7 @@ MonoBehaviour:
   - {fileID: -4522450989294909825, guid: 8891471586a755746901fe4ad69ff085, type: 3}
   - {fileID: 3718113701559466645, guid: 4865a242f8f15aa49bc2e2cfa4236ebd, type: 3}
   - {fileID: 7670333031865212187, guid: edab3c4be7f29d94f848e6e644cdb250, type: 3}
+  shadow: {fileID: 7719730146893538639, guid: 3a6f6b46c8648124a86a07fdc287c11d, type: 3}
   throwTime: 2
   SkillTime: 3
 --- !u!61 &271405564504185709
@@ -387,7 +389,7 @@ BoxCollider2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 192
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2

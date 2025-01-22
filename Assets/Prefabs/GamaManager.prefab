@@ -1,0 +1,72 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3094454443171423163
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8454309430368822209}
+  - component: {fileID: 8441956322747969256}
+  m_Layer: 0
+  m_Name: GamaManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8454309430368822209
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3094454443171423163}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8441956322747969256
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3094454443171423163}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5193099c685d9884eae716ea038ee455, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  nowBoss: {fileID: 0}
+  bossData:
+  - {fileID: 11400000, guid: f9177d7cca072e442906a695222d5255, type: 2}
+  - {fileID: 11400000, guid: bd3d7ca312d65db43a967351a24ad2c0, type: 2}
+  - {fileID: 11400000, guid: cff18d38a7987ba41b991f80aaf1e1a1, type: 2}
+  round: 0
+  CutSceneUI: {fileID: 0}
+  CustSceneBossName: {fileID: 0}
+  BossSprite: {fileID: 0}
+  isCutScenePlaying: 0
+  itemManager: {fileID: 0}
+  isSelectingFinish: 0
+  HpOn: {fileID: -5190086840121592426, guid: d692d90b254045a4285569a9cea2ba8a, type: 3}
+  HpOff: {fileID: 3054613455101831404, guid: 001f1beeb55ffbd40ba26cfca7476b18, type: 3}
+  PlayerHpImg:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  PlayerEnergyImg:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  BossHpBar: {fileID: 0}
+  BossNameText: {fileID: 0}
+  GameFailedUI: {fileID: 0}

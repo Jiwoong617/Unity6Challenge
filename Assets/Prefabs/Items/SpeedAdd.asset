@@ -16,5 +16,5 @@ MonoBehaviour:
   itemFunc: "\uC2A4\uD53C\uB4DC \uC0C1\uC2B9"
   itemSprite: {fileID: 21300000, guid: 0ee11b4f51df9a74aadbc092eeda77dd, type: 3}
   itemType: 2
-  itemDescription: "\uC0C8 \uC2E0\uBC1C\uC744 \uC2E0\uC73C\uB2C8 \uBC1C\uC774 \uAC00\uBCBC\uC6CC\uC9C4
-    \uB290\uB08C\uC774\uB2E4."
+  itemDescription: "\uC0C8 \uC2E0\uBC1C\uC744 \uC2E0\uC73C\uB2C8 \uBC1C\uC774 \uAC00\uBCBC\uC6CC\uC838
+    \uC2A4\uD53C\uB4DC\uAC00 \uC0C1\uC2B9\uD55C\uB2E4."
